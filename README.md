@@ -23,6 +23,7 @@ mkdir /usr/local/oe-go-proxy
 mv oe-go-proxy /usr/local/oe-go-proxy/
 mv src/config.ini /usr/local/oe-go-proxy/
 cd /usr/local/oe-go-proxy/
+chmod 755 oe-go-proxy
 ./oe-go-proxy
 ```
 
