@@ -43,8 +43,8 @@ func postData(data string) {
 	}
 
 	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
+	if !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
+		//if 200 <= resp.StatusCode < 300 {
 		to.queue <- data
 		pause = true
 		chocho <- true

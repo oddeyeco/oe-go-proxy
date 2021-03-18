@@ -26,6 +26,7 @@ type metrics struct {
 	NumForcedGC  uint32 `json:"forcegc,int"`
 	PauseTotalNs uint64 `json:"pausetotal,int"`
 	Goroutines   int    `json:"goroutines,int"`
+	QueueLen     int    `json:"queuelen,int"`
 }
 
 func printStats() (s string) {
@@ -45,6 +46,7 @@ func printStats() (s string) {
 	u.PauseTotalNs = m.PauseTotalNs
 	u.NumForcedGC = m.NumForcedGC
 	u.Goroutines = runtime.NumGoroutine()
+	u.QueueLen = len(to.queue)
 
 	result, _ := json.Marshal(u)
 
